@@ -18,10 +18,9 @@ class Bullet():
 
 
     def draw(self, screen, cam_pos):
-        pygame.draw.line(screen, [255, 100, 0],
+        pygame.draw.line(screen, [255, 255, 0],
                          [int(self.pos[0] - cam_pos[0]), int(self.pos[1] - cam_pos[1])],
-                         [int(self.pos_old[0] - cam_pos[0]), int(self.pos_old[1] - cam_pos[1])],
-                         4)
+                         [int(self.pos_old[0] - cam_pos[0]), int(self.pos_old[1] - cam_pos[1])], 4)
 
         #pygame.draw.circle(screen, [255, 0, 0], [int(self.pos[0]-cam_pos[0]), int(self.pos[1]-cam_pos[1])], 3)
 
