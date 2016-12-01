@@ -3,7 +3,7 @@ from constants import *
 from character import Character
 from bullet import *
 import math
-
+LEFT = 1
 
 class Player(Character):
     def __init__(self, x, y):
@@ -33,7 +33,7 @@ class Player(Character):
         self.rect = pygame.Rect([self.x, self.y, TILESIZE, TILESIZE])
 
     def on_event(self, event, bullet_list):
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == LEFT:
             self.shoot(event.pos, bullet_list)
 
         if event.type == pygame.KEYDOWN:
