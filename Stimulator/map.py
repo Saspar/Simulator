@@ -6,7 +6,9 @@ MAPX = screen_w // TILESIZE
 MAPY = screen_h // TILESIZE
 
 map1 = open("map_files/map1.data", "r")
+map2 = open("map_files/map2.data", "r")
 map1_width = int(map1.readline().strip())
+map2_width = int(map2.readline().strip())
 rectangle_list = []
 
 tile_sheet = pygame.image.load("TILESHEET.png")
