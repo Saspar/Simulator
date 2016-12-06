@@ -56,7 +56,7 @@ def read_map(map_data):
             if letter == ' ':
                 map_list[row].append(0)
 
-            elif letter == '#':
+            elif letter == '-':
                 map_list[row].append(1)
 
             elif letter == 'C':
@@ -92,7 +92,7 @@ def read_map(map_data):
             elif letter == '4':
                 map_list[row].append(12)
 
-            elif letter == '/':
+            elif letter == '|':
                 map_list[row].append(13)
 
             elif letter == 'B':

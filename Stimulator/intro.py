@@ -5,7 +5,6 @@ fade = 0
 fadeIn = True
 musicneed = True
 
-
 def init(pause):
     global intropic
     intropic = pygame.image.load("intropic.png").convert()

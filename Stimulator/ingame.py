@@ -10,11 +10,13 @@ bullet_list = []
 
 
 def init(pause):
-    global player_obj, player_icon, enemy_icon, enemy_obj, bullet_obj
+    global player_obj, player_icon, enemy_icon, enemy_obj, bullet_obj, food1_icon, food1_obj
     enemy_icon = pygame.image.load("Kera.png")
+    food1_icon = pygame.image.load("player_boy.png")
     #player_icon = pygame.image.load("player.png")
     player_obj = player.Player(100, 650)
-    enemy_obj = enemy.Enemy(300, 1800, enemy_icon)
+    enemy_obj = enemy.Enemy(300, 1700, enemy_icon)
+    food1_obj = enemy.Enemy(300, 100, food1_icon)
 
     gamemusic = pygame.mixer.music.load("gamesound.wav")
     pygame.mixer.music.play(-1)
@@ -33,6 +35,7 @@ def on_event(event):
 def update():
     player_obj.update(map.get_rect_list())
     enemy_obj.update(player_obj, map.map1_data)
+    #food1_obj.update(player_obj, map.map1_data)
     cam_position[0] = player_obj.x - screen_w/2 + player_obj.rect.w/2
     cam_position[1] = player_obj.y - screen_h/2 + player_obj.rect.h/2
 
@@ -51,6 +54,10 @@ def update():
     # print(cam_position, player_obj.x, player_obj.y)
 
     enemy_obj.collide(bullet_list)
+    food1_obj.collide(bullet_list)
+
+
+
 
 
 def draw(screen):
@@ -58,6 +65,7 @@ def draw(screen):
 
     map.draw(screen, cam_position)
     enemy_obj.draw(screen, cam_position)
+    food1_obj.draw(screen, cam_position)
     player_obj.draw(screen, cam_position)
 
     for i in bullet_list:

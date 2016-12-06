@@ -22,6 +22,7 @@ class Bullet():
                          [int(self.pos[0] - cam_pos[0]), int(self.pos[1] - cam_pos[1])],
                          [int(self.pos_old[0] - cam_pos[0]), int(self.pos_old[1] - cam_pos[1])], 4)
 
+        #Red bullet projectile
         #pygame.draw.circle(screen, [255, 0, 0], [int(self.pos[0]-cam_pos[0]), int(self.pos[1]-cam_pos[1])], 3)
 
 
@@ -34,5 +35,3 @@ class Bullet():
                 self.vel = [0,0]
         except:
             pass
-
-
