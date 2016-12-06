@@ -3,6 +3,7 @@ from constants import *
 import pygame
 import map
 import enemy
+import pie
 from bullet import *
 
 cam_position = [0, 0]
@@ -12,11 +13,11 @@ bullet_list = []
 def init(pause):
     global player_obj, player_icon, enemy_icon, enemy_obj, bullet_obj, food1_icon, food1_obj
     enemy_icon = pygame.image.load("Kera.png")
-    food1_icon = pygame.image.load("player_boy.png")
+    food1_icon = pygame.image.load("Pie1.png")
     #player_icon = pygame.image.load("player.png")
-    player_obj = player.Player(100, 650)
+    player_obj = player.Player(100, 150)
     enemy_obj = enemy.Enemy(300, 1700, enemy_icon)
-    food1_obj = enemy.Enemy(300, 100, food1_icon)
+    food1_obj = pie.Pie1(100, 250, food1_icon)
 
     gamemusic = pygame.mixer.music.load("gamesound.wav")
     pygame.mixer.music.play(-1)
@@ -61,7 +62,7 @@ def update():
 
 
 def draw(screen):
-    screen.fill((0, 200, 0)) #talv ju!
+    screen.fill((0, 200, 0)) #suvi
 
     map.draw(screen, cam_position)
     enemy_obj.draw(screen, cam_position)
