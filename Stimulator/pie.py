@@ -70,4 +70,7 @@ class Pie1(Character):
             for i in bullet_list:
                 if self.rect.collidepoint(i.pos):
                     print("Nom-nom-nom...")
+                    score = 3
+                    score += 1
+                    print (score)
                     self.dead = True
