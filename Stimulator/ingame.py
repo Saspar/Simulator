@@ -8,30 +8,36 @@ from bullet import *
 
 cam_position = [0, 0]
 bullet_list = []
-
+score = 0
 
 def init(pause):
-    global player_obj, player_icon, enemy_icon, enemy_obj, bullet_obj, food1_icon, food1_obj
+    global player_obj, player_icon, enemy_icon, enemy_obj, bullet_obj, pie1_icon, pie1_obj, pie2_icon, pie2_obj
+
     enemy_icon = pygame.image.load("Kera.png")
-    food1_icon = pygame.image.load("Pie1.png")
-    #player_icon = pygame.image.load("player.png")
+    pie_icon = pygame.image.load("Pie.png")
+
+    #PLAYER
     player_obj = player.Player(100, 150)
+
+    #ENEMY
     enemy_obj = enemy.Enemy(300, 1700, enemy_icon)
-    food1_obj = pie.Pie1(100, 250, food1_icon)
+
+    #OBJECTS
+    pie1_obj = pie.Pie1(100, 250, pie_icon)
+    pie2_obj = pie.Pie1(300, 250, pie_icon)
 
     gamemusic = pygame.mixer.music.load("gamesound.wav")
     pygame.mixer.music.play(-1)
 
+    #Mute/unmute
     if pause:
         pygame.mixer.music.pause()
     else:
         pygame.mixer.music.unpause()
     pygame.mouse.set_visible(True)
 
-
 def on_event(event):
     player_obj.on_event(event, bullet_list)
-
 
 def update():
     player_obj.update(map.get_rect_list())
@@ -50,23 +56,19 @@ def update():
             dead_list.append(i)
 
     for i in sorted(dead_list)[::-1]:
-
         bullet_list.pop(i)
-    # print(cam_position, player_obj.x, player_obj.y)
 
     enemy_obj.collide(bullet_list)
-    food1_obj.collide(bullet_list)
-
-
-
-
+    pie1_obj.collide(bullet_list)
+    pie2_obj.collide(bullet_list)
 
 def draw(screen):
     screen.fill((0, 200, 0)) #suvi
 
     map.draw(screen, cam_position)
     enemy_obj.draw(screen, cam_position)
-    food1_obj.draw(screen, cam_position)
+    pie1_obj.draw(screen, cam_position)
+    pie2_obj.draw(screen, cam_position)
     player_obj.draw(screen, cam_position)
 
     for i in bullet_list:
