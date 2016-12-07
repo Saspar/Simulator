@@ -20,8 +20,8 @@ class Enemy(Character):
 
     def update(self, player, map_data):
         if not self.dead:
-            tile_x = (self.x // TILESIZE) + 1
-            tile_y = (self.y // TILESIZE) + 1
+            tile_x = (self.x + 40) // (TILESIZE + 3 ) + 1
+            tile_y = self.y // TILESIZE + 1
 
             # left = 1, up = 2, right = 3, down = 4
             possible_dirs = []
