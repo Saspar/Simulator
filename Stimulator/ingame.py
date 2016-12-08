@@ -10,7 +10,7 @@ cam_position = [0, 0]
 bullet_list = []
 
 def init(pause):
-    global player_obj, player_icon, enemy_icon, enemy_obj, bullet_obj, pie1_icon, pie1_obj, pie2_icon, pie2_obj, score
+    global player_obj, player_icon, enemy_icon, enemy_obj, bullet_obj, pie1_obj, pie2_obj, pie3_obj, score
 
     enemy_icon = pygame.image.load("Kera.png")
     pie_icon = pygame.image.load("Pie.png")
@@ -24,6 +24,7 @@ def init(pause):
     #OBJECTS
     pie1_obj = pie.Pie1(100, 250, pie_icon)
     pie2_obj = pie.Pie1(1250, 200, pie_icon)
+    pie3_obj = pie.Pie1(100, 300, pie_icon)
 
     gamemusic = pygame.mixer.music.load("gamesound.wav")
     pygame.mixer.music.play(-1)
@@ -60,6 +61,7 @@ def update():
     enemy_obj.collide(bullet_list)
     pie1_obj.collide(bullet_list)
     pie2_obj.collide(bullet_list)
+    pie3_obj.collide(bullet_list)
 
 def draw(screen):
     screen.fill((0, 200, 0)) #suvi
@@ -68,6 +70,7 @@ def draw(screen):
     enemy_obj.draw(screen, cam_position)
     pie1_obj.draw(screen, cam_position)
     pie2_obj.draw(screen, cam_position)
+    pie3_obj.draw(screen, cam_position)
     player_obj.draw(screen, cam_position)
 
     for i in bullet_list:
