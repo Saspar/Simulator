@@ -16,8 +16,11 @@ class Pie1(Character):
             screen.blit(self.icon, [self.x - cam_pos[0], self.y - cam_pos[1]])
 
     def collide(self, bullet_list):
+        global score
         if not self.dead:
             for i in bullet_list:
                 if self.rect.collidepoint(i.pos):
                     print("Nom-nom-nom...")
+                    score[0] += 1
+                    print ("Score:", + score[0])
                     self.dead = True
