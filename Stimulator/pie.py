@@ -1,6 +1,7 @@
 import pygame
 from character import Character
 from constants import *
+import ingame
 
 class Pie1(Character):
 
@@ -20,4 +21,5 @@ class Pie1(Character):
             for i in bullet_list:
                 if self.rect.collidepoint(i.pos):
                     print("Nom-nom-nom...")
+                    score[0] += 1
                     self.dead = True

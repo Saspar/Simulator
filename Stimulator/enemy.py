@@ -7,8 +7,8 @@ class Enemy(Character):
     def __init__(self, x, y, enemy_icon):
         self.x = x
         self.y = y
-        self.x_speed = 1
-        self.y_speed = 1
+        self.x_speed = keraspeed[0]
+        self.y_speed = keraspeed[0]
         self.icon = enemy_icon
         self.dead = False
         self.rect = pygame.Rect([self.x, self.y, TILESIZE, TILESIZE])
@@ -69,5 +69,14 @@ class Enemy(Character):
         if not self.dead:
             for i in bullet_list:
                 if self.rect.collidepoint(i.pos):
+                    print (self.x_speed)
+                    wasd = 0
                     print("Kera has dieded, U mordoror!")
-                    self.dead = True
+                    if wasd == 0:
+                        self.x_speed += keraspeed[0]
+                        self.y_speed += keraspeed[0]
+                    #elif wasd = 1
+                        self.x_speed += keraspeed[0]
+                        self.y_speed += keraspeed[0]
+
+                    #self.dead = True
